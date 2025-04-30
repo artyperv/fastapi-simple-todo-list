@@ -155,7 +155,3 @@ sudo service nginx restart
 
 Once the backend is running, you can access the API documentation at:
 - Swagger UI: `http://localhost:8001/api/v1/docs`
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
