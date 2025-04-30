@@ -1,0 +1,27 @@
+DEBUG: true
+
+service:
+  API_PREFIX: "/api/v1/identity"
+  LOGGER_CONFIG: "backend/logging.yaml"
+
+security:
+  SECRET_KEY: ""
+  VERIFICATION_CODE_EXPIRE_MINUTES: 5
+  ACCESS_TOKEN_EXPIRE_MINUTES: 43200
+  ALGORITHM: "HS256"
+  JWT_COOKIE_NAME: "session_id"
+
+database:
+  SERVER: localhost
+  PORT: 5432
+  DB: db
+  USER: postgres
+  PASSWORD: ""
+
+redis:
+  SERVER: localhost
+  PORT: 6379
+  DB: "0"
+
+content:
+  SPAWN_GREETING_TODOS: true
