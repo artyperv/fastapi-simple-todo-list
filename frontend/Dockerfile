@@ -1,7 +1,12 @@
 FROM node:22.2.0-bullseye-slim as builder
+# Install pnpm globally
+RUN npm install -g pnpm
+
 COPY . /data
 WORKDIR /data
-RUN npm install && npx vite build
+
+RUN pnpm install
+RUN pnpx vite build
 
 
 FROM nginx:1.25.1

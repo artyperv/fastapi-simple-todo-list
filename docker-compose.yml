@@ -20,16 +20,17 @@ services:
     networks:
       - internal
 
-  #frontend:
-  #  image: "frontend"
-  #  build:
-  #    context: ./frontend
-  #  ports:
-  #    - "3000:3000"
-  #  depends_on:
-  #    - backend
-  #  networks:
-  #    - internal
+  frontend:
+    image: "frontend"
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - internal
+    platform: linux/amd64
 
   redis:
     image: redis:7
