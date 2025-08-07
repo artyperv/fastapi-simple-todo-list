@@ -2,7 +2,6 @@ DEBUG: true
 
 service:
   API_PREFIX: "/api/v1/identity"
-  LOGGER_CONFIG: "backend/logging.yaml"
 
 security:
   SECRET_KEY: ""
@@ -12,14 +11,14 @@ security:
   JWT_COOKIE_NAME: "session_id"
 
 database:
-  SERVER: localhost
+  SERVER: db
   PORT: 5432
   DB: db
   USER: postgres
-  PASSWORD: ""
+  PASSWORD: postgres
 
 redis:
-  SERVER: localhost
+  SERVER: redis
   PORT: 6379
   DB: "0"
 

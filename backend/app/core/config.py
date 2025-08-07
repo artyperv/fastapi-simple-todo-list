@@ -47,7 +47,6 @@ class SecuritySettings(BaseModel):
 
 class ServiceSettings(BaseModel):
     API_PREFIX: str = "/api/v1"
-    LOGGER_CONFIG: str = "logging.yaml"
 
 
 class ContentSettings(BaseModel):

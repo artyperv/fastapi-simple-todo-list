@@ -2,9 +2,9 @@
 
 [alembic]
 # path to migration scripts
-script_location = alembic
+script_location = %(here)s/alembic
 
-sqlalchemy.url = postgresql+psycopg://user:pass@localhost:port/dom_panel
+sqlalchemy.url = postgresql+psycopg://postgres:postgres@db:5432/db
 
 # template used to generate migration files
 # file_template = %%(rev)s_%%(slug)s

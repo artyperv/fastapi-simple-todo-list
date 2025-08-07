@@ -10,13 +10,6 @@ from app.core.config import settings
 DEBUG = settings.DEBUG
 
 
-# Load the logger config file
-with open(settings.service.LOGGER_CONFIG) as f:
-    logger_config = yaml.safe_load(f.read())
-
-logging.config.dictConfig(logger_config)
-
-
 # generate unique ids for openapi.json
 # needed for typescript api at the front
 def custom_generate_unique_id(route: APIRoute) -> str:
@@ -40,7 +33,6 @@ app = FastAPI(
     if DEBUG
     else None,
     redoc_url=None,
-    logger_config=logger_config,
 )
 
 app.include_router(api_router, prefix=settings.service.API_PREFIX)

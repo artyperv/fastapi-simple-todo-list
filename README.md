@@ -2,25 +2,23 @@
 
 A modern todo list application built with FastAPI backend and a modern frontend framework.
 
-## Prerequisites
+## Running with Docker
 
-- Python 3.8+
-- Node.js 16+
-- PostgreSQL
-- Redis
-- Nginx
-- Poetry (Python package manager)
-
-## Project Structure
-
-```
-.
-├── backend/          # FastAPI backend
-├── frontend/         # Frontend application
-└── venv/            # Python virtual environment
+1. Configure the application:
+Create a `config.yaml` file in the backend directory based on `config.yaml.temp`.
+```bash
+cp backend/config.yaml.temp backend/config.yaml
+nano backend/config.yaml
+cp backend/app/models/alembic.ini.tmp backend/app/models/alembic.ini
+nano backend/app/models/alembic.ini
 ```
 
-## Backend Setup
+2. Run the containers:
+```bash
+docker compose up --build
+```
+
+## Running without Docker
 
 1. Install Poetry if you haven't already:
 ```bash
@@ -30,6 +28,7 @@ curl -sSL https://install.python-poetry.org | python3 -
 2. Install backend dependencies:
 ```bash
 cd backend
+poetry lock
 poetry install
 ```
 
@@ -47,7 +46,7 @@ alembic -c app/models/alembic.ini upgrade head
 start
 ```
 
-## Frontend Setup
+### Frontend Setup
 
 1. Install frontend dependencies:
 ```bash
@@ -60,7 +59,7 @@ pnpm i
 pnpm run dev
 ```
 
-## Database Setup
+### Database Setup
 
 1. Start PostgreSQL:
 ```bash
@@ -85,7 +84,7 @@ brew services start redis
 sudo service redis-server start
 ```
 
-## Nginx Configuration
+### Nginx Configuration
 
 1. Install Nginx:
 ```bash
