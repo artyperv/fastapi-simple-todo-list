@@ -1,7 +1,7 @@
 DEBUG: true
 
 service:
-  API_PREFIX: "/api/v1/identity"
+  API_PREFIX: "/api/v1"
 
 security:
   SECRET_KEY: ""

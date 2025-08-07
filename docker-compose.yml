@@ -8,8 +8,8 @@ services:
       - ./backend/:/app
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/todo_db
-    ports:
-      - "127.0.0.1:8000:8000"
+    expose:
+      - "8000"
     command: >
       sh -c "./wait-for-it.sh db:5432 --
       alembic -c /app/app/models/alembic.ini upgrade head &&
@@ -24,8 +24,8 @@ services:
     image: "frontend"
     build:
       context: ./frontend
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     depends_on:
       - backend
     networks:
@@ -50,6 +50,18 @@ services:
       - "5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
+    networks:
+      - internal
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "127.0.0.1:80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+      - frontend
     networks:
       - internal
 

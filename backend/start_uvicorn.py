@@ -2,7 +2,7 @@ from uvicorn import Config, Server
 from uvicorn.supervisors import ChangeReload
 
 
-def main(host="127.0.0.1", port=8001, log_level="info", reload=True):
+def main(host="127.0.0.1", port=8000, log_level="info", reload=True):
     config = Config(
         "app.main:app",
         host=host,

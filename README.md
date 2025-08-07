@@ -18,7 +18,13 @@ nano backend/app/models/alembic.ini
 docker compose up --build
 ```
 
+3. Access:
+- Frontend will be available at: `http://127.0.0.1`
+- Swagger UI: `http://127.0.0.1/api/v1/docs`
+
 ## Running without Docker
+
+### Backend Setup
 
 1. Install Poetry if you haven't already:
 ```bash
@@ -110,7 +116,7 @@ server {
     }
 
     location /api/v1/todos/ws {
-        proxy_pass http://127.0.0.1:8001;
+        proxy_pass http://127.0.0.1:8000;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "Upgrade";
@@ -121,7 +127,7 @@ server {
     }
 
     location /api/v1 {
-        proxy_pass http://127.0.0.1:8001;
+        proxy_pass http://127.0.0.1:8000;
         proxy_set_header   X-Forwarded-Host $server_name;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -144,13 +150,7 @@ brew services restart nginx
 sudo service nginx restart
 ```
 
-## Development
+### Access
 
-- Backend API will be available at: `http://localhost:8001`
-- Frontend will be available at: `http://localhost:5173`
-- Production-like environment will be available at: `http://todo.local`
-
-## API Documentation
-
-Once the backend is running, you can access the API documentation at:
-- Swagger UI: `http://localhost:8001/api/v1/docs`
+- Frontend will be available at: `http://todo.local`
+- Swagger UI: `http://todo.local/api/v1/docs`
